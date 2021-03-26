@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     font-family: 'Righteous', sans-serif;
 }
@@ -41,3 +46,26 @@ body{
    
 }
 
+#gameOver{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 2.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+#restart{
+    padding: 20px;
+    font-size: 1.1rem;
+    background-color: yellow;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: 700;
+}
