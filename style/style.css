@@ -5,11 +5,16 @@
 }
 body{
     font-family: 'Righteous', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #c7cdd3;
 }
 
 .card{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     position: relative;
 
     transform-style: preserve-3d;
@@ -25,7 +30,7 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.45);
 
 }
 
@@ -68,4 +73,11 @@ body{
     border-radius: 10px;
     margin-top: 20px;
     font-weight: 700;
+}
+
+#gameBoard{
+    max-width: 700px;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr ;
+    gap: 20px;
 }
