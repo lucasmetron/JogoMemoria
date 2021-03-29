@@ -86,3 +86,15 @@ img {
     grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr ;
     gap: 20px;
 }
+
+@media screen and (max-width: 524px){
+
+    .card{
+        width: 70px;
+        height: 70px;
+    }
+
+    img {
+        width: 80%;
+    }
+}
