@@ -19,7 +19,7 @@ body{
 
     transform-style: preserve-3d;
     transition-property: transform;
-    transition-duration: 1s;
+    transition-duration: 0.8s;
 }
 
 .card_front, .card_back{

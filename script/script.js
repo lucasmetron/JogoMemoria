@@ -1,38 +1,22 @@
 const FRONT = "card_front";
 const BACK = "card_back";
 const CARD = "card";
-const ICON = "icon"
-
-let techs = [
-    "bootstrap",
-    "css",
-    "electron",
-    "firebase",
-    "html",
-    "javascript",
-    "jquery",
-    "mongo",
-    "node",
-    "react"
-];
-
-let cards = null;
+const ICON = "icon";
+const FLIP = "flip";
 
 startGame();
 
 function startGame(){
-     cards = createCardsFromTechs(techs);
-     shufflecards(cards);
-    //  console.log(cards)
-
-    initializeCards(cards);
+     cards = 
+    initializeCards(game.createCardsFromTechs());
 }
 
 
 function initializeCards(cards){
     let gameBoard = document.getElementById("gameBoard")
+    gameBoard.innerHTML = "",
  
-    cards.forEach(card =>{
+    game.cards.forEach(card =>{
         let cardElement = document.createElement("div")
         cardElement.id = card.id
         cardElement.classList.add(CARD)
@@ -72,54 +56,46 @@ function creatCardFace (face, card, element){
 
 }
 
-function shufflecards(cards){
-    let currentIndex = cards.length; 
-    let randomIndex = 0;
-
-    while (currentIndex !== 0){
-
-        randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex --;
-        
-        [cards[randomIndex], cards[currentIndex]] = [cards[currentIndex], cards[randomIndex]]
-        
-        // console.log("currentIndex "+currentIndex)
-        // console.log("randomIndex "+randomIndex) 
-        
-    }
-}
 
 
-
-function createCardsFromTechs(techs){
-    let cards = [];
-
-    techs.forEach((tech)=>{
-        cards.push(createPairFromTech(tech))
-    });
-
-    return cards.flatMap(pair=> pair);
-}
-
-function createPairFromTech(tech){
-    return[{
-        id: createIdWithTech(tech),
-        icon: tech,
-        flipped: false
-    },
-    {
-        id: createIdWithTech(tech),
-        icon: tech,
-        flipped: false
-    }
-]
-}
-
-function createIdWithTech (tech){
-    return tech + parseInt(Math.random() *1000);
-}
 
 
 function flipCard (){
-    this.classList.add("flip")
+
+    if(game.setCard(this.id)){
+        this.classList.add("flip")
+
+        if(game.secondCard){
+
+        
+        if(game.checkMatch()){
+            game.clearCards();
+            if(game.checkGameOver()){
+                let gameOverLayer = document.getElementById("gameOver");
+                gameOverLayer.style.display = "flex"; 
+            }
+        }else{
+
+            setTimeout(()=>{
+                let firstCardView = document.getElementById(game.firstCard.id);
+                let secondCardView = document.getElementById(game.secondCard.id)
+    
+                firstCardView.classList.remove(FLIP)
+                secondCardView.classList.remove(FLIP)
+                game.unflipCards();
+            },1000)
+
+        }
+
+    }
+    }
+    
+
+}
+
+function restart(){
+    game.clearCards();
+    startGame();
+    let gameOverLayer = document.getElementById("gameOver");
+    gameOverLayer.style.display = "none"; 
 }
