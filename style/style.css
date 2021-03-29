@@ -89,9 +89,6 @@ img {
 
 @media screen and (max-width: 524px){
 
-    body{
-        background-color: tomato;
-    }
     .card{
         width: 70px;
         height: 70px;
