@@ -15,10 +15,10 @@
 
 
 ### Front End para desktop
-![Tela inicial](./assets/gifs/Desktop.gif)
+![Tela inicial](./assets/images/gifs/desktop.gif)
 
 ### Front End para celular
-![Tela Inicial](./assets/gifs/mobile.gif)
+![Tela Inicial](./assets/images/gifs/mobile.gif)
 
 ### Veja o projeto você mesmo! Acesse: https://jogomemorialucas.netlify.app
 
